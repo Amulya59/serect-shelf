@@ -1,0 +1,135 @@
+<div
+  class="bg-light-gray vh-100 d-flex align-items-center justify-content-center"
+>
+  <div
+    class="container shadow rounded-4 overflow-hidden"
+    style="max-width: 1300px; background-color: white"
+  >
+    <div class="row g-0">
+      <!-- Right Side: Book Image -->
+      <div class="col-md-6 position-relative" >
+        <img
+          src="regbg.png"
+          class="img-fluid h-100 w-100 object-fit-cover"
+          style="filter: blur(2px); opacity: 0.8"
+          alt="Bookshelf"
+        />
+      </div>
+
+      <!-- Left Side: Dynamic Content -->
+      <div
+        class="col-md-6 p-5 d-flex flex-column justify-content-center text-center"
+      >
+        <!-- Role Selection -->
+        <div *ngIf="currentView === 'roleSelection'">
+          <h2 class="mb-4">Role that suits you!!</h2>
+          <div class="d-flex justify-content-around gap-4">
+            <div (click)="goToRegister('buyer')" style="cursor: pointer">
+              <img
+                src="buyer.webp"
+                alt="Buyer"
+                class="img-thumbnail rounded-3 mb-2"
+                style="width: 150px; height: 150px"
+              />
+              <p class="text-center">Buyer!!</p>
+            </div>
+            <div (click)="goToRegister('seller')" style="cursor: pointer">
+              <img
+                src="seller.jpg"
+                alt="Seller"
+                class="img-thumbnail rounded-3 mb-2"
+                style="width: 150px; height: 150px"
+              />
+              <p class="text-center">Seller!!</p>
+            </div>
+          </div>
+
+          <div>
+            <p>
+              Already registered?
+              <a href="#" class="text-primary" (click)="selectRole('buyer')"
+                >Login</a
+              >
+            </p>
+            <hr />
+          </div>
+        </div>
+
+        <form (ngSubmit)="onSubmit()">
+        <!-- Login Form -->
+        <div *ngIf="currentView === 'login'">
+          <h2 class="d-flex justify-content-start">Login</h2>
+          <p class="d-flex justify-content-start">Welcome Back</p>
+          <!-- login.component.html -->
+          <div class="custom-toggle mb-4">
+            <input 
+              type="radio" 
+              id="buyer" 
+              name="role" 
+              value="buyer" 
+              [checked]="selectedRole === 'buyer'" 
+              (change)="toggleRole('buyer')" />
+            <label for="buyer">Buyer</label>
+
+          <input 
+            type="radio" 
+            id="seller" 
+            name="role" 
+            value="seller" 
+            [checked]="selectedRole === 'seller'" 
+            (change)="toggleRole('seller')" />
+          <label for="seller">Seller</label>
+          </div>
+
+          <!-- Email -->
+          <div class="mb-3 row align-items-center">
+            <label for="email" class="col-sm-3 col-form-label">Email Id:</label>
+            <div class="col-sm-9">
+              <input
+                type="email"
+                id="email"
+                class="form-control"
+                name="user_email"
+                placeholder="Email"
+              />
+            </div>
+          </div>
+
+          <!-- Password -->
+          <div class="mb-3 row align-items-center">
+            <label for="password" class="col-sm-3 col-form-label"
+              >Password:</label
+            >
+            <div class="col-sm-9">
+              <input
+                type="password"
+                id="password"
+                class="form-control"
+                name="user_password"
+                placeholder="Password"
+              />
+            </div>
+          </div>
+
+          <!-- Submit Button -->
+          <div class="mb-4 d-flex justify-content-center">
+            <button type="submit" class="btn btn-dark rounded-4 px-4">
+              Submit
+            </button>
+          </div>
+
+          <div class="text-center">
+            <p>
+              I am an
+              <a routerLink="/buyerhome" class="text-primary" (click)="selectRole('admin')"
+                >Admin!!</a
+              >
+            </p>
+          </div>
+          <hr/>
+        </div>
+      </form>
+      </div>
+    </div>
+  </div>
+</div>

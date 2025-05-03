@@ -1,0 +1,131 @@
+<div class="container text-center py-4">
+  <!-- Header and Navigation -->
+<header [ngClass]="{'scrolled': isScrolled}" class="fixed-top bg-white shadow-sm">
+  <div class="container d-flex flex-column align-items-center py-3" [ngClass]="{'flex-md-row justify-content-between': isScrolled}">
+    <!-- Title -->
+    <h1 *ngIf="!isScrolled" class="fw-bold text-center mb-3" style="font-family: 'Georgia', serif; text-shadow: 1px 1px 2px #ccc;">
+      Secret Shelf
+    </h1>
+    <h4 *ngIf="isScrolled" class="fw-bold mb-0" style="font-family: 'Georgia', serif;">
+      Secret Shelf
+    </h4>
+
+    <!-- Navigation Links -->
+    <nav class="d-flex gap-4" [ngClass]="{'ms-md-auto': isScrolled}">
+      <a href="#" class="text-decoration-none text-dark fw-medium">Home</a>
+      <a href="#" class="text-decoration-none text-dark fw-medium">Recent Books</a>
+      <a href="#" class="text-decoration-none text-dark fw-medium">About Us</a>
+      <a href="#" class="text-decoration-none text-dark fw-medium">Contact Us</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Spacer to prevent content from being hidden behind the fixed header -->
+<div class="mt-5 pt-5"></div>
+
+
+  <!-- Welcome Banner -->
+  <div
+    class="position-relative rounded-5 overflow-hidden shadow my-4"
+    style="
+      background-image: url('bookShelf.webp');
+      background-size: cover;
+      background-position: center;
+      height: 150px;
+    "
+  >
+    <div
+      class="h-100 w-100 d-flex align-items-center ps-4 text-start text-dark"
+      style="
+        background: linear-gradient(
+          to right,
+          rgba(255, 255, 255, 1),
+          rgba(255, 255, 255, 0.6)
+        );
+      "
+    >
+      <div style="width: 35%">
+        <p class="m-0 fw-semibold">Hi {{ username }} !</p>
+        <small>
+          The book you're considering is more than a story; it's an inspiring
+          journey just for you. Don't let it gather dust—grab your copy today!
+        </small>
+      </div>
+    </div>
+  </div>
+
+  <!-- Genre Heading -->
+  <div class="d-flex justify-content-center align-items-center my-3">
+    <div class="flex-grow-1 border-bottom mx-2"></div>
+    <p class="m-0 px-3 text-muted fw-semibold">Genre</p>
+    <div class="flex-grow-1 border-bottom mx-2"></div>
+  </div>
+  <div style="cursor: pointer">
+    <img
+      src="{{ catimage }}"
+      alt="Buyer"
+      class="img-thumbnail rounded-pill mb-2"
+      style="width: 100px; height: 100px"
+    />
+    <p class="text-center">{{ category }}</p>
+  </div>
+  <h3 class="text-start mb-3">Books</h3>
+  <div class="card shadow-sm" style="width: 18rem; border-radius: 10px">
+    <img
+      src="{{ bookImage }}"
+      class="card-img-top"
+      alt="bookImage"
+      style="
+        height: 12rem;
+        object-fit: cover;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+      "
+    />
+
+    <div class="card-body p-2">
+      <div class="d-flex justify-content-between align-items-center">
+        <h6 class="card-title text-truncate mb-0" style="max-width: 70%">
+          {{ bookName }}
+        </h6>
+        <a href="#" class="btn btn-dark btn-sm w-50 rounded-4">Buy</a>
+      </div>
+      <div class="d-flex justify-content-between align-items-center mt-1">
+        <p class="mb-0">₹{{ bookcost }}</p>
+        <a
+          href="#"
+          class="btn btn-light btn-sm text-muted"
+          style="pointer-events: none"
+          >Details..</a
+        >
+      </div>
+    </div>
+  </div>
+
+  <div
+  class="position-relative rounded-5 overflow-hidden shadow my-4"
+  style="
+    background-image: url('seller.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 150px;
+  "
+>
+  <div
+    class="h-100 w-100 d-flex justify-content-start align-items-center px-4 text-light"
+    style="background: linear-gradient(to right, rgba(0, 0, 0), rgba(0, 0, 0, 0.6));"
+  >
+    <div class="me-auto text-start">
+      <h5 class="m-0 fw-semibold" style="font-family: 'Georgia', serif;">
+        Do you have book?
+      </h5>
+      <small>Register today and start earning!!</small>
+    </div>
+    <button class="btn btn-light rounded-pill px-4" (click)="goToSellerPage()">
+      Register Now!!
+    </button>
+  </div>
+</div>
+
+
+</div>

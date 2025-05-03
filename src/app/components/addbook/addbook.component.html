@@ -1,0 +1,67 @@
+<div class="bg container-fluid vh-100 d-flex align-items-center justify-content-center position-relative">
+    
+    <div class="col-md-10 d-flex align-items-center justify-content-center">
+      <div class="glass-card p-4 w-100">
+        <h2 class="text-center mb-4">Add New Book</h2>
+        <form>
+          <!-- Genre -->
+          <div class="mb-3">
+            <label for="genre" class="form-label">Genre</label>
+            <select id="genre" class="form-select" [(ngModel)]="genre" name="genre">
+              <option disabled selected>Choose Genre</option>
+              <option value="Fiction">Fiction</option>
+              <option value="Action">Action</option>
+              <option value="Drama">Drama</option>
+            </select>
+          </div>
+
+          <!-- Book Name -->
+          <div class="mb-3">
+            <label for="bookName" class="form-label">Book Name</label>
+            <input type="text" id="bookName" class="form-control" [(ngModel)]="bookName" name="bookName" placeholder="Enter book name" />
+          </div>
+
+          <!-- Book Description -->
+          <div class="mb-3">
+            <label for="bookDescription" class="form-label">Book Description</label>
+            <input type="text" id="bookDescription" class="form-control" [(ngModel)]="bookDescription" name="bookDescription" placeholder="Enter description" />
+          </div>
+
+          <!-- Author Name -->
+          <div class="mb-3">
+            <label for="authorName" class="form-label">Author Name</label>
+            <input type="text" id="authorName" class="form-control" [(ngModel)]="authorName" name="authorName" placeholder="Enter author name" />
+          </div>
+
+          <!-- Quantity, Year, Price -->
+          <div class="row">
+            <div class="col-md-4 mb-3">
+              <label for="quantity" class="form-label">Quantity</label>
+              <input type="number" id="quantity" class="form-control" [(ngModel)]="quantity" name="quantity" placeholder="Enter quantity" />
+            </div>
+            <div class="col-md-4 mb-3">
+              <label for="yop" class="form-label">Year</label>
+              <input type="number" id="yop" class="form-control" [(ngModel)]="yop" name="yop" placeholder="Enter year" />
+            </div>
+            <div class="col-md-4 mb-3">
+              <label for="price" class="form-label">Price</label>
+              <input type="number" id="price" class="form-control" [(ngModel)]="price" name="price" placeholder="Enter price" />
+            </div>
+          </div>
+
+          <!-- Image URL -->
+          <div class="mb-3">
+            <label for="image" class="form-label">Image URL</label>
+            <input type="text" id="image" class="form-control" [(ngModel)]="image" name="image" placeholder="Paste image URL" />
+          </div>
+
+          <div class="mb-4 d-flex justify-content-center">
+            <button type="submit" class="btn btn-dark w-25 rounded-4 px-4">
+              Submit
+            </button>
+          </div>
+          
+        </form>
+      </div>
+    </div>
+  </div>

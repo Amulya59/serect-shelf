@@ -1,0 +1,25 @@
+
+  .glass-card {
+    background: rgba(244, 244, 244, 0.5);
+    border-radius: 20px;
+    backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    color: black;
+    box-shadow: 0 4px 30px rgba(131, 130, 130, 0.5);
+  }
+
+  .background-color {
+    background-color: #d3d3d3;
+  }
+
+/* Transition for smooth changes */
+header {
+  transition: all 0.5s ease;
+}
+
+/* Styles applied after scrolling */
+header.scrolled {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

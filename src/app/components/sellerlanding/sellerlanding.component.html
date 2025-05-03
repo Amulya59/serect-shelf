@@ -1,0 +1,126 @@
+<div class="container text-center py-4">
+  <!-- Header and Navigation -->
+<header [ngClass]="{'scrolled': isScrolled}" class="fixed-top bg-white shadow-sm">
+  <div class="container d-flex flex-column align-items-center py-3" [ngClass]="{'flex-md-row justify-content-between': isScrolled}">
+    <!-- Title -->
+    <h1 *ngIf="!isScrolled" class="fw-bold text-center mb-3" style="font-family: 'Georgia', serif; text-shadow: 1px 1px 2px #ccc;">
+      Secret Shelf
+    </h1>
+    <h4 *ngIf="isScrolled" class="fw-bold mb-0" style="font-family: 'Georgia', serif;">
+      Secret Shelf
+    </h4>
+
+    <!-- Navigation Links -->
+    <nav class="d-flex gap-4" [ngClass]="{'ms-md-auto': isScrolled}">
+      <a href="#" class="text-decoration-none text-dark fw-medium">Home</a>
+      <a href="#" class="text-decoration-none text-dark fw-medium">Recent Books</a>
+      <a href="#" class="text-decoration-none text-dark fw-medium">About Us</a>
+      <a href="#" class="text-decoration-none text-dark fw-medium">Contact Us</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Spacer to prevent content from being hidden behind the fixed header -->
+<div class="mt-5 pt-5"></div>
+
+
+  <!-- Welcome Banner -->
+  <div
+    class="position-relative rounded-5 overflow-hidden shadow my-4"
+    style="
+      background-image: url('bookShelf.webp');
+      background-size: cover;
+      background-position: center;
+      height: 150px;
+    "
+  >
+    <div
+      class="h-100 w-100 d-flex align-items-center ps-4 text-start text-dark"
+      style="
+        background: linear-gradient(
+          to right,
+          rgba(255, 255, 255, 1),
+          rgba(255, 255, 255, 0.6)
+        );
+      "
+    >
+      <div style="width: 35%">
+        <p class="m-0 fw-semibold">Hi {{ username }} !</p>
+        <small>
+          The book you're considering is more than a story; it's an inspiring
+          journey just for you. Don't let it gather dust—grab your copy today!
+        </small>
+      </div>
+    </div>
+  </div>
+
+  <!-- Genre Heading -->
+  <div class="d-flex justify-content-center align-items-center my-3">
+    <div class="flex-grow-1 border-bottom mx-2"></div>
+    <p class="m-0 px-3 text-muted fw-semibold">Genre</p>
+    <div class="flex-grow-1 border-bottom mx-2"></div>
+  </div>
+  <div style="cursor: pointer">
+    <img
+      src="{{ catimage }}"
+      alt="Buyer"
+      class="img-thumbnail rounded-pill mb-2"
+      style="width: 100px; height: 100px"
+    />
+    <p class="text-center">{{ category }}</p>
+  </div>
+
+<div class="d-flex justify-content-around flex-wrap py-4" >
+  <div class="card" style="width: 350px;">
+    <div class="card-body">
+      <h5 class="card-title">My books</h5>
+      <p class="card-text">The total books that are posted</p>
+      <a href="#" class="btn btn-secondary">{{noOfbooks}}</a>
+    </div>
+  </div>
+  <div class="card" style="width: 350px;">
+    <div class="card-body">
+      <h5 class="card-title">Number of sells</h5>
+      <p class="card-text">The total books that are sold</p>
+      <a href="#" class="btn btn-secondary">{{noOfbooks}}</a>
+    </div>
+  </div>
+  <div class="card" style="width: 350px;">
+    <div class="card-body">
+      <h5 class="card-title">Wallet</h5>
+      <p class="card-text">Earning you have made</p>
+      <a href="#" class="btn btn-secondary">₹{{noOfbooks}}</a>
+    </div>
+  </div>
+</div>
+
+<button class="btn btn-dark w-75 rounded-5" (click)="addbook()">ADD NEW BOOK</button>
+  <div
+    class="position-relative rounded-5 overflow-hidden shadow my-4"
+    style="
+      background-image: url('seller.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 150px;
+    "
+  >
+    <div
+      class="h-100 w-100 d-flex justify-content-start align-items-center px-4 text-light"
+      style="
+        background: linear-gradient(
+          to right,
+          rgba(0, 0, 0),
+          rgba(0, 0, 0, 0.6)
+        );
+      "
+    >
+      <div class="me-auto text-start">
+        <h5 class="m-0 fw-semibold" style="font-family: 'Georgia', serif">
+          Do you need a book?
+        </h5>
+        <small>Register today there is no end for learning!!</small>
+      </div>
+      <button class="btn btn-light rounded-pill px-4">Register Now!!</button>
+    </div>
+  </div>
+</div>
