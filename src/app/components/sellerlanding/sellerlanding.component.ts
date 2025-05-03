@@ -28,4 +28,7 @@ export class SellerlandingComponent {
   addbook(){
     this.router.navigate(['/addBook']);
   }
+  sellerreg(){
+    this.router.navigate(["/login"]);
+  }
 }

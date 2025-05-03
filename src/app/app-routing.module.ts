@@ -7,6 +7,7 @@ import { BuyerlandingComponent } from './components/buyerlanding/buyerlanding.co
 import { SellerlandingComponent } from './components/sellerlanding/sellerlanding.component';
 import { AddbookComponent } from './components/addbook/addbook.component';
 import { LandingComponent } from './components/landing/landing.component';
+import { CartComponent } from './components/cart/cart.component';
 
 const routes: Routes = [
   { path: '', component:LandingComponent},
@@ -15,7 +16,8 @@ const routes: Routes = [
   { path: 'buyerhome', component:BuyerlandingComponent},
   { path: 'sellerhome', component:SellerlandingComponent},
   { path: 'addBook', component:AddbookComponent},
-  {path:"**",component:ErrorComponent},
+  { path: 'addCart', component:CartComponent},
+  { path: "**", component:ErrorComponent},
   
 ];
 

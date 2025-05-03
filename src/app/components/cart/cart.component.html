@@ -1,0 +1,59 @@
+<div class="bg container-fluid py-5">
+    <h2 class="text-center mb-5">Your Cart</h2>
+  
+    <div class="row justify-content-center">
+      <div class="col-md-10">
+        <!-- Book Card -->
+        <div *ngFor="let book of cartBooks" class="glass-card mb-4 p-4 d-flex flex-md-row flex-column align-items-center shadow-lg rounded-4">
+          
+          <!-- Book Image -->
+          <div class="col-md-4 text-center mb-3 mb-md-0">
+            <img [src]="book.image" alt="{{book.bookName}}" class="img-fluid rounded-4 shadow" style="max-height: 300px;" />
+          </div>
+  
+          <!-- Book Details -->
+          <div class="col-md-8 ps-md-4">
+            <h4 class="mb-2">{{ book.bookName }}</h4>
+            <p class="text-muted mb-1"><strong>Author:</strong> {{ book.authorName }}</p>
+            <p class="text-muted mb-1"><strong>Genre:</strong> {{ book.genre }}</p>
+            <p class="text-muted mb-1"><strong>Description:</strong> {{ book.bookDescription }}</p>
+            <p class="text-muted mb-1"><strong>Year:</strong> {{ book.yop }}</p>
+            <p class="text-muted mb-1"><strong>Available:</strong> {{ book.quantity }}</p>
+            <p class="text-dark fw-bold fs-5 mt-3"><strong>₹{{ book.price }}</strong></p>
+  
+            <!-- Buy Button -->
+            <div class="mt-4">
+              <button class="btn btn-dark px-4 rounded-4" (click)="buyBook(book)">Buy</button>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="mt-4 p-5">
+        <h4 class="mb-4">You may also like ({{ cartBooks[0].genre }})</h4>
+        <div class="d-flex flex-wrap gap-4 justify-content-start">
+          <div *ngFor="let suggestion of getSameGenreBooks(cartBooks[0].genre)" class="card shadow-sm" style="width: 18rem; border-radius: 10px;">
+            <img
+              [src]="suggestion.image"
+              class="card-img-top"
+              alt="Book Image"
+              style="height: 12rem; object-fit: cover; border-top-left-radius: 10px; border-top-right-radius: 10px"
+            />
+            <div class="card-body p-2">
+              <div class="d-flex justify-content-between align-items-center">
+                <h6 class="card-title text-truncate mb-0" style="max-width: 70%">{{ suggestion.bookName }}</h6>
+                <a href="#" class="btn btn-dark btn-sm w-50 rounded-4">Buy</a>
+              </div>
+              <div class="d-flex justify-content-between align-items-center mt-1">
+                <p class="mb-0">₹{{ suggestion.price }}</p>
+                <span class="btn btn-light btn-sm text-muted" style="pointer-events: none">Details..</span>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+  </div>  
+  </div>
+  

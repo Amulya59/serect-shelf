@@ -1,0 +1,10 @@
+.bg {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  }
+  
+  .glass-card {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+  

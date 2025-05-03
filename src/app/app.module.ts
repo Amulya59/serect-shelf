@@ -13,6 +13,7 @@ import { SellerlandingComponent } from './components/sellerlanding/sellerlanding
 import { AddbookComponent } from './components/addbook/addbook.component';
 import { LandingComponent } from './components/landing/landing.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CartComponent } from './components/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { HttpClientModule } from '@angular/common/http';
     SellerlandingComponent,
     AddbookComponent,
     LandingComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,

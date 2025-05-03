@@ -60,47 +60,59 @@
     <p class="m-0 px-3 text-muted fw-semibold">Genre</p>
     <div class="flex-grow-1 border-bottom mx-2"></div>
   </div>
-  <div style="cursor: pointer">
-    <img
-      src="{{ catimage }}"
-      alt="Buyer"
-      class="img-thumbnail rounded-pill mb-2"
-      style="width: 100px; height: 100px"
-    />
-    <p class="text-center">{{ category }}</p>
-  </div>
-  <h3 class="text-start mb-3">Books</h3>
-  <div class="card shadow-sm" style="width: 18rem; border-radius: 10px">
-    <img
-      src="{{ bookImage }}"
-      class="card-img-top"
-      alt="bookImage"
-      style="
-        height: 12rem;
-        object-fit: cover;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-      "
-    />
 
-    <div class="card-body p-2">
-      <div class="d-flex justify-content-between align-items-center">
-        <h6 class="card-title text-truncate mb-0" style="max-width: 70%">
-          {{ bookName }}
-        </h6>
-        <a href="#" class="btn btn-dark btn-sm w-50 rounded-4">Buy</a>
-      </div>
-      <div class="d-flex justify-content-between align-items-center mt-1">
-        <p class="mb-0">₹{{ bookcost }}</p>
-        <a
-          href="#"
-          class="btn btn-light btn-sm text-muted"
-          style="pointer-events: none"
-          >Details..</a
-        >
+  <!-- Category Section -->
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div
+      class="col-6 col-sm-4 col-md-3 col-lg-2 mb-4"
+      *ngFor="let category of categories let i = index"
+      (click)="selectCategory(i)"
+    >
+      <div
+        class="card h-100 text-center border-0"
+        style="cursor: pointer;"
+        
+      >
+        <img
+          [src]="category.image"
+          class="card-img-top rounded-circle mx-auto mt-3"
+          [alt]="category.name"
+          style="width: 100px; height: 100px; object-fit: cover;"
+        />
+        <div class="card-body">
+          <h6 class="card-title">{{ category.name }}</h6>
+        </div>
       </div>
     </div>
   </div>
+</div>
+
+  <h3 class="text-start mb-3">{{ categories[selectedCategoryIndex].name }} Books</h3>
+<div class="d-flex flex-wrap gap-3 justify-content-start">
+  <div
+    *ngFor="let book of categories[selectedCategoryIndex].books"
+    class="card shadow-sm"
+    style="width: 18rem; border-radius: 10px"
+  >
+    <img
+      [src]="book.image"
+      class="card-img-top"
+      alt="bookImage"
+      style="height: 12rem; object-fit: cover; border-top-left-radius: 10px; border-top-right-radius: 10px"
+    />
+    <div class="card-body p-2">
+      <div class="d-flex justify-content-between align-items-center">
+        <h6 class="card-title text-truncate mb-0" style="max-width: 70%">{{ book.name }}</h6>
+        <button class="btn btn-dark btn-sm w-50 rounded-4" (click)="gotocart()">Buy</button>
+      </div>
+      <div class="d-flex justify-content-between align-items-center mt-1">
+        <p class="mb-0">₹{{ book.cost }}</p>
+        <span class="btn btn-light btn-sm text-muted" style="pointer-events: none">Details..</span>
+      </div>
+    </div>
+  </div>
+</div>
 
   <div
   class="position-relative rounded-5 overflow-hidden shadow my-4"
@@ -121,7 +133,7 @@
       </h5>
       <small>Register today and start earning!!</small>
     </div>
-    <button class="btn btn-light rounded-pill px-4" (click)="goToSellerPage()">
+    <button class="btn btn-light rounded-pill px-4" (click)="sellerreg()">
       Register Now!!
     </button>
   </div>
