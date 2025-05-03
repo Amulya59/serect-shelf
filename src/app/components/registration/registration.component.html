@@ -1,81 +1,83 @@
-
 <div class="bg vh-100 d-flex align-items-center justify-content-center" [ngClass]="role === 'seller' ? 'seller-bg' : 'buyer-bg'">
-
-  <div class="glass-card">
+  <div class="glass-card w-100 p-4" style="max-width: 600px">
+    <h1 class="mb-4">Register</h1>
     
-    <h1 class="justify-content-start">Register</h1>
-    <form>
-      <div class="mb-3" >
-        
-        <label for="exampleInputEmail1" class="form-label">Email address</label>
-        <input
-          type="email"
-          class="form-control"
-          id="exampleInputEmail1"
-          aria-describedby="emailHelp"
-          placeholder="Email"
-        />
+    <form [formGroup]="registrationForm">
+      
+      <!-- Email -->
+      <div class="mb-3">
+        <label for="email" class="form-label">Email address</label>
+        <input id="email" type="email" class="form-control" formControlName="email" placeholder="Email" />
+        <small *ngIf="registrationForm.get('email')?.invalid && registrationForm.get('email')?.touched" class="color: white;">
+          Valid email required
+        </small>
       </div>
 
-      <!-- Name (First and Last) -->
+      <!-- Name -->
       <div class="mb-3">
-        <label class="form-label">Name:</label>
+        <label class="form-label">Name</label>
         <div class="row">
           <div class="col">
-            <input type="text" class="form-control" placeholder="First name" />
+            <input type="text" class="form-control" formControlName="firstName" placeholder="First name" />
+            <small *ngIf="registrationForm.get('firstName')?.invalid && registrationForm.get('firstName')?.touched" class="color: white;">
+              Required
+            </small>
           </div>
           <div class="col">
-            <input type="text" class="form-control" placeholder="Last name" />
+            <input type="text" class="form-control" formControlName="lastName" placeholder="Last name" />
+            <small *ngIf="registrationForm.get('lastName')?.invalid && registrationForm.get('lastName')?.touched" class="color: white;">
+              Required
+            </small>
           </div>
         </div>
       </div>
 
       <!-- Username -->
       <div class="mb-3">
-        <label for="username" class="form-label">User Name:</label>
-        <input
-          type="text"
-          class="form-control"
-          id="username"
-          placeholder="Username"
-        />
+        <label for="username" class="form-label">User Name</label>
+        <input id="username" type="text" class="form-control" formControlName="username" placeholder="Username" />
+        <small *ngIf="registrationForm.get('username')?.invalid && registrationForm.get('username')?.touched" class="color: white;">
+          Minimum 4 characters
+        </small>
       </div>
 
-      <!-- Phone Number -->
+      <!-- Phone -->
       <div class="mb-3">
-        <label for="phone" class="form-label">Phone Number:</label>
-        <input
-          type="tel"
-          class="form-control"
-          id="phone"
-          placeholder="Phone Number"
-        />
+        <label for="phone" class="form-label">Phone Number</label>
+        <input id="phone" type="tel" class="form-control" formControlName="phone" placeholder="Phone Number" />
+        <small *ngIf="registrationForm.get('phone')?.invalid && registrationForm.get('phone')?.touched" class="color: white;">
+          Enter 10-digit phone number
+        </small>
       </div>
 
       <!-- Password -->
       <div class="mb-3">
-        <label for="password" class="form-label">Password:</label>
-        <input
-          type="password"
-          class="form-control"
-          id="password"
-          placeholder="Password"
-        />
+        <label for="password" class="form-label">Password</label>
+        <input id="password" type="password" class="form-control" formControlName="password" placeholder="Password" />
+        <small *ngIf="registrationForm.get('password')?.invalid && registrationForm.get('password')?.touched" class="color: white;">
+          Minimum 6 characters
+        </small>
       </div>
 
-      <!-- 🔽 Dropdown Menu -->
-      <div class="mb-3">
-        <label for="dropdownSelect" class="form-label">{{ genreLabel }}</label>
-        <select class="form-select" id="dropdownSelect">
-          <option selected disabled>Choose an option</option>
+      <!-- Genre -->
+      <div class="mb-4">
+        <label for="genre" class="form-label">{{ genreLabel }}</label>
+        <select id="genre" class="form-select" formControlName="genre">
+          <option disabled selected value="">Choose an option</option>
           <option value="fiction">Fiction</option>
           <option value="action">Action</option>
           <option value="drama">Drama</option>
         </select>
+        <small *ngIf="registrationForm.get('genre')?.invalid && registrationForm.get('genre')?.touched" class="color: white;">
+          Genre is required
+        </small>
       </div>
+
+      <!-- Submit Button -->
       <div class="d-flex justify-content-center">
-        <button type="button" class="btn btn-dark w-50" (click)="submitForm()">Submit</button>
-      </div>      
+        <button type="button" class="btn btn-dark w-50 rounded-4" (click)="submitForm()">Submit</button>
+      </div>
+      
     </form>
   </div>
 </div>
